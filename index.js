@@ -35,4 +35,4 @@ client.on("message", async message => {
     }catch(erro) { console.log(erro) }
 
   })
-client.login(configBot.token)
+client.login(process.env.TOKEN)
