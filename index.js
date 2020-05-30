@@ -37,11 +37,18 @@ client.on("message", async message => {
     }catch(erro) { console.log(erro) }
 
     if(command === "summonpokemon"){
-    const pokemonId = Math.floor(Math.random() * 807) + 1;
-    P.resource([`/api/v2/pokemon/${pokemonId}`])
-    .then(function(response) {
-    message.channel.send(response)
-    });
+        var request = require('request')
+        var cheerio = require('cheerio')
+    
+        request('https://pokeapi.co/api/v2/pokemon/ditto', function(err, res, body){
+            if(err) console.log(err);
+
+            var $ = cheerio.load(body);
+            $().each(function(){
+                var context = $(this).find('pre').text().trim();
+                console.log(context)
+            })
+        })
     }
 
   })

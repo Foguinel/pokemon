@@ -18,10 +18,12 @@
   },
   "homepage": "https://github.com/Foguinel/pokemon#readme",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "discord.js": "^12.2.0",
     "express": "^4.17.1",
     "firebase": "^7.14.6",
     "path": "^0.12.7",
-    "pokedex-promise-v2": "^3.2.0"
+    "pokedex-promise-v2": "^3.2.0",
+    "request": "^2.88.2"
   }
 }
