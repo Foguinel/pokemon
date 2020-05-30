@@ -26,7 +26,6 @@ client.on("message", async message => {
 
     if(message.author.bot) return;
     if(!command) return;
-    let args = message.content.split(" ").slice(1);
     let cmd = message.content.split(" ")[0];
     cmd = cmd.slice(configBot.prefix.length);
     try{
