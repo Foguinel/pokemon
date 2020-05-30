@@ -3,6 +3,9 @@ const client = new Discord.Client();
 const configBot = require("./configBot.json");
 const firebase = require("firebase")
 
+const Pokedex = require('pokedex-promise-v2');
+const P = new Pokedex();
+
 const express = require('express');
 const path = require('path');
 const PORT = process.env.PORT || 5000;
@@ -24,6 +27,15 @@ client.on("message", async message => {
   const command = args.shift().toLowerCase();
   var embedColor = "0x000"
 
+    function summonPokemon(){
+    const pokemonId = Math.floor(Math.random() * 807) + 1;
+    P.resource([`/api/v2/pokemon/${pokemonId}`])
+    .then(function(response) {
+        console.log(response)
+      return response;
+    });
+    }
+
     if(message.author.bot) return;
     if(!command) return;
     let cmd = message.content.split(" ")[0];
@@ -32,6 +44,10 @@ client.on("message", async message => {
     let exec = require('./commands/' + cmd + '.js');
     exec.run(client, message, args, firebase, sender, embedColor);
     }catch(erro) { console.log(erro) }
+
+    if(command === "summonpokemon"){
+        summonPokemon()
+    }
 
   })
 client.login(process.env.TOKEN)
