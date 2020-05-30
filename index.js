@@ -27,15 +27,6 @@ client.on("message", async message => {
   const command = args.shift().toLowerCase();
   var embedColor = "0x000"
 
-    function summonPokemon(){
-    const pokemonId = Math.floor(Math.random() * 807) + 1;
-    P.resource([`/api/v2/pokemon/${pokemonId}`])
-    .then(function(response) {
-        console.log(response)
-      return response;
-    });
-    }
-
     if(message.author.bot) return;
     if(!command) return;
     let cmd = message.content.split(" ")[0];
@@ -46,7 +37,11 @@ client.on("message", async message => {
     }catch(erro) { console.log(erro) }
 
     if(command === "summonpokemon"){
-        summonPokemon()
+    const pokemonId = Math.floor(Math.random() * 807) + 1;
+    P.resource([`/api/v2/pokemon/${pokemonId}`])
+    .then(function(response) {
+    message.channel.send(response)
+    });
     }
 
   })
