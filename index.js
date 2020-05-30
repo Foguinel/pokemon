@@ -3,9 +3,6 @@ const client = new Discord.Client();
 const configBot = require("./configBot.json");
 const firebase = require("firebase")
 
-const Pokedex = require('pokedex-promise-v2');
-const P = new Pokedex();
-
 const express = require('express');
 const path = require('path');
 const PORT = process.env.PORT || 5000;
@@ -37,18 +34,19 @@ client.on("message", async message => {
     }catch(erro) { console.log(erro) }
 
     if(command === "summonpokemon"){
-        var request = require('request')
-        var cheerio = require('cheerio')
-    
-        request('https://pokeapi.co/api/v2/pokemon/ditto', function(err, res, body){
-            if(err) console.log(err);
+        const fetchPokemon = () => {
+            const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'
+            const pokemonId = Math.floor(Math.random() * 807) + 1;
+            const url = baseUrl + `${pokemonId}`
+            const image = `https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`
 
-            var $ = cheerio.load(body);
-            $().each(function(){
-                var context = $(this).find('pre').text().trim();
-                console.log(context)
+            fetch(url)
+            .then(response => response.json())
+            .then(pokemon => {
+                message.channel.send(`${pokemon['name']}\n${image}`)
             })
-        })
+        }
+        fetchPokemon()
     }
 
   })
