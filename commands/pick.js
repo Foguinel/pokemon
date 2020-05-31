@@ -1,5 +1,21 @@
 const Discord = require("discord.js");
-module.exports.run = async(client, message, embedColor, args, database) => {
+const firebase = require("firebase");
+
+    var firebaseConfig = {
+    apiKey: process.env.KEY,
+    authDomain: "pokemon-8b7e6.firebaseapp.com",
+    databaseURL: "https://pokemon-8b7e6.firebaseio.com",
+    projectId: "pokemon-8b7e6",
+    storageBucket: "pokemon-8b7e6.appspot.com",
+    messagingSenderId: "473412334342",
+    appId: "1:473412334342:web:d2179ce2cd42cb8153e487",
+    measurementId: "G-4FDY12NK8W"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const database = firebase.database()
+
+module.exports.run = async(client, message, embedColor, args) => {
     database.ref(`Users/${message.author.id}`)
     .once('value').then(async function(snap){
 

@@ -63,7 +63,7 @@ client.on("message", async message => {
     cmd = cmd.slice(configBot.prefix.length);
     try{
     let exec = require('./commands/' + cmd + '.js');
-    exec.run(client, message, args, firebase, sender, embedColor, database);
+    exec.run(client, message, args, sender, embedColor, database);
     }catch(erro) { console.log(erro) }
 
   })})
