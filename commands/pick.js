@@ -33,7 +33,7 @@ module.exports.run = async(client, message, embedColor) => {
         .then(pokemon => {
     
     if(pokes.includes(input)){
-        message.channel.send("Você escolheu ``" + caps(input) + "``\n" + image)
+        message.channel.send("Você escolheu ``" + caps(input) + "`` como seu pokémon inicial.\n" + image)
 
         database.ref(`Users/${message.author.id}`)
         .set({
