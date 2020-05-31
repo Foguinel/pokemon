@@ -9,7 +9,7 @@ module.exports.run = async(client, message, embedColor) => {
     const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g);
 
     if(snap.val() !== null)return message.channel.send("Você já pegou seu primeiro pokemon.");
-    var input = args[0].toLowerCase()
+    var input = args[1].toLowerCase()
     if(!input)return;
     let pokes = ["bulbasauro", "charmander", "squirtle", "chikorita", "cyndaquil", "totodile", "treecko", "torchic", "mudkip", "turtwig", "chimchar", "piplup", "snivy", "tepig", "oshawott", "chespin", "fennekin", "froakie", "rowlet", "litten", "popplio"]
     let ids = [1, 4, 7, 152, 155, 158, 252, 255, 258, 387, 390, 393, 495, 498, 501, 650, 653, 656, 722, 725, 728]
