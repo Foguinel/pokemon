@@ -19,26 +19,10 @@ module.exports.run = async(client, message, embedColor) => {
     if(snap.val() !== null)return message.channel.send("Você já pegou seu primeiro pokemon.");
     var input = args[1]
     let pokes = ["bulbasauro", "charmander", "squirtle", "chikorita", "cyndaquil", "totodile", "treecko", "torchic", "mudkip", "turtwig", "chimchar", "piplup", "snivy", "tepig", "oshawott", "chespin", "fennekin", "froakie", "rowlet", "litten", "popplio"]
-    if(!input){
-
-        var resultado = [];
-        function organizar(){
-                var i = 0;
-                var resultado = [];
-                if(i >= pokes.length)return resultado;
-                index = pokes[i]
-                resultado.push(`• ${caps(index)}\n`)
-                ++i
-            repeat()
-            return resultado;
-        }
-
-        function repeat(){
-            if(resultado.length == pokes.length){organizar(); console.log(resultado)}
-        }
-        organizar()
-    }else{
     var input = input.toLowerCase()
+    if(!input){
+        message.channel.send("Bulbasauro", "Charmander", "Squirtle", "Chikorita", "Cyndaquil", "Totodile", "Treecko", "Torchic", "Mudkip", "Turtwig", "Chimchar", "Piplup", "Snivy", "Tepig", "Oshawott", "Chespin", "Fennekin", "Froakie", "Rowlet", "Litten", "Popplio")
+    }
 
     let ids = [1, 4, 7, 152, 155, 158, 252, 255, 258, 387, 390, 393, 495, 498, 501, 650, 653, 656, 722, 725, 728]
     var pokeId = ids[pokes.indexOf(input)];
@@ -85,7 +69,7 @@ module.exports.run = async(client, message, embedColor) => {
         )
     }
     })
-}}
+}
     )}
 
 module.exports.help = {
