@@ -20,16 +20,22 @@ module.exports.run = async(client, message, embedColor) => {
     var input = args[1]
     let pokes = ["bulbasauro", "charmander", "squirtle", "chikorita", "cyndaquil", "totodile", "treecko", "torchic", "mudkip", "turtwig", "chimchar", "piplup", "snivy", "tepig", "oshawott", "chespin", "fennekin", "froakie", "rowlet", "litten", "popplio"]
     if(!input){
+
         function organizar(){
-            let resultado = []
-            if(pokes.length > 0){
-            resultado.push("• " + pokes[0] + "\n")
-            pokes.shift()
-            }else{
-                return resultado;
-            }
+                var i = 0;
+                var resultado = [];
+                if(i >= pokes.length)return resultado;
+                index = pokes[i]
+                resultado.push(`• ${caps(index)}\n`)
+                ++i
+            repeat()
         }
-        message.channel.send(organizar())
+
+        var organizado = organizar()
+
+        function repeat(){
+            if(resultado.length == pokes.length){organizar(); console.log(organizado)}
+        }
     }
     var input = input.toLowerCase()
 
