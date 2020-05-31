@@ -3,6 +3,19 @@ const client = new Discord.Client();
 const configBot = require("./configBot.json");
 const firebase = require("firebase")
 
+    var firebaseConfig = {
+    apiKey: process.env.KEY,
+    authDomain: "pokemon-8b7e6.firebaseapp.com",
+    databaseURL: "https://pokemon-8b7e6.firebaseio.com",
+    projectId: "pokemon-8b7e6",
+    storageBucket: "pokemon-8b7e6.appspot.com",
+    messagingSenderId: "473412334342",
+    appId: "1:473412334342:web:d2179ce2cd42cb8153e487",
+    measurementId: "G-4FDY12NK8W"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
 const express = require('express');
 const path = require('path');
 const PORT = process.env.PORT || 5000;
@@ -24,14 +37,33 @@ client.on("message", async message => {
   const command = args.shift().toLowerCase();
   var embedColor = "0x000"
 
+  // Firebase
+
+    // global.pokeball = '';
+    // global.greatball = '';
+    // global.ultraball = '';
+    // global.masterball = '';
+
+    global.id = '';
+    global.selected = '';
+    global.money = '';
+    global.inventory = '';
+    global.pokedex = '';
+
+    var memberoa = message.mentions.members.first()
+    if(!memberoa) memberoa = message.author
+
+    database.ref(`Users/${memberoa.id}`)
+	.once('value').then(async function(snap){
+
     if(message.author.bot) return;
     if(!command) return;
     let cmd = message.content.split(" ")[0];
     cmd = cmd.slice(configBot.prefix.length);
     try{
     let exec = require('./commands/' + cmd + '.js');
-    exec.run(client, message, args, firebase, sender, embedColor);
+    exec.run(client, message, args, firebase, sender, embedColor, snap);
     }catch(erro) { console.log(erro) }
 
-  })
+  })})
 client.login(process.env.TOKEN)
