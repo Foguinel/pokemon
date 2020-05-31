@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const firebase = require("firebase");
 const database = firebase.database()
+const configBot = require("../configBot.json")
 
 module.exports.run = async(client, message, embedColor) => {
     database.ref(`Users/${message.author.id}`)
