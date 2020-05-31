@@ -24,7 +24,7 @@ module.exports.run = async(client, message, embedColor) => {
         .then(response => response.json())
         .then(pokemon => {
     
-    if(pokemons.includes(input)){
+    if(pokes.includes(input)){
         message.channel.send("Você escolheu ``" + input.charAt(0).toUpperCase + input.substring(1) + "``\n" + image)
 
         database.ref(`Users/${message.author.id}`)
