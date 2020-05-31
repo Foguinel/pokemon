@@ -19,7 +19,7 @@ module.exports.run = async(client, message, embedColor) => {
     if(snap.val() !== null)return message.channel.send("Você já pegou seu primeiro pokemon.");
     var input = args[1]
     let pokes = ["bulbasauro", "charmander", "squirtle", "chikorita", "cyndaquil", "totodile", "treecko", "torchic", "mudkip", "turtwig", "chimchar", "piplup", "snivy", "tepig", "oshawott", "chespin", "fennekin", "froakie", "rowlet", "litten", "popplio"]
-    if(!input)return message.channel.send("Bulbasauro", "Charmander", "Squirtle", "Chikorita", "Cyndaquil", "Totodile", "Treecko", "Torchic", "Mudkip", "Turtwig", "Chimchar", "Piplup", "Snivy", "Tepig", "Oshawott", "Chespin", "Fennekin", "Froakie", "Rowlet", "Litten", "Popplio")
+    if(!input)return message.channel.send("Bulbasauro\nCharmander\nSquirtle\nChikorita\nCyndaquil\nTotodile\nTreecko\nTorchic\nMudkip\nTurtwig\nChimchar\nPiplup\nSnivy\nTepig\nOshawott\nChespin\nFennekin\nFroakie\nRowlet\nLitten\nPopplio")
     var input = input.toLowerCase()
 
     let ids = [1, 4, 7, 152, 155, 158, 252, 255, 258, 387, 390, 393, 495, 498, 501, 650, 653, 656, 722, 725, 728]
