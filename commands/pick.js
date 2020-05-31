@@ -33,10 +33,9 @@ module.exports.run = async(client, message, embedColor) => {
             selected: input,
             money: "lorem",
             inventory: "lorem",
-            pokedex: input
         })
         .then(
-        database.ref(`Users/${message.author.id}/${input}`)
+        database.ref(`Users/${message.author.id}/pokedex/${input}`)
         .set({
             lvl: 1,
             hp: "lorem",

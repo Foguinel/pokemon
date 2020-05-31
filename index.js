@@ -49,7 +49,6 @@ client.on("message", async message => {
     global.selected = '';
     global.money = '';
     global.inventory = '';
-    global.pokedex = '';
 
     var memberoa = message.mentions.members.first()
     if(!memberoa) memberoa = message.author
