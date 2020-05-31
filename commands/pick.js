@@ -1,5 +1,8 @@
 const Discord = require("discord.js");
-module.exports.run = async(client, message, embedColor, snap, args, database) => {
+module.exports.run = async(client, message, embedColor, args, database) => {
+    database.ref(`Users/${message.author.id}`)
+    .once('value').then(async function(snap){
+
     if(snap.val() !== null)return message.channel.send("Você já pegou seu primeiro pokemon.");
     var input = args[0].toLowerCase()
     if(!input)return;
@@ -51,6 +54,7 @@ module.exports.run = async(client, message, embedColor, snap, args, database) =>
     }
     })
 }
+    )}
 
 module.exports.help = {
     name: "pick",
