@@ -36,7 +36,7 @@ module.exports.run = async(client, message, embedColor) => {
         function repeat(){
             if(resultado.length == pokes.length){organizar(); console.log(resultado)}
         }
-    }
+    }else{
     var input = input.toLowerCase()
 
     let ids = [1, 4, 7, 152, 155, 158, 252, 255, 258, 387, 390, 393, 495, 498, 501, 650, 653, 656, 722, 725, 728]
@@ -84,7 +84,7 @@ module.exports.run = async(client, message, embedColor) => {
         )
     }
     })
-}
+}}
     )}
 
 module.exports.help = {
