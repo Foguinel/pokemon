@@ -4,6 +4,14 @@ const database = firebase.database()
 const configBot = require("../configBot.json")
 
 module.exports.run = async(client, message, embedColor) => {
+
+    function caps(s){
+        if(!s)return;
+        s = s.toLowerCase()
+        str = s.charAt(0).toUpperCase()
+        return str + s.substring(1);
+    }
+
     database.ref(`Users/${message.author.id}`)
     .once('value').then(async function(snap){
     const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g);
@@ -25,7 +33,7 @@ module.exports.run = async(client, message, embedColor) => {
         .then(pokemon => {
     
     if(pokes.includes(input)){
-        message.channel.send("Você escolheu ``" + input.charAt(0).toUpperCase + input.substring(1) + "``\n" + image)
+        message.channel.send("Você escolheu ``" + caps(input) + "``\n" + image)
 
         database.ref(`Users/${message.author.id}`)
         .set({
