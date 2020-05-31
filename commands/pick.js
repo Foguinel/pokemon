@@ -17,7 +17,7 @@ module.exports.run = async(client, message, embedColor) => {
 
         const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'
         const pokemonId = Math.floor(Math.random() * 807) + 1;
-        const url = baseUrl + `${pokeId}`
+        const url = baseUrl + `${args[0]}`
         const image = `https://pokeres.bastionbot.org/images/pokemon/${pokeId}.png`
 
         fetch(url)
