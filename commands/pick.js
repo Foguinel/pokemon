@@ -21,7 +21,7 @@ module.exports.run = async(client, message, embedColor) => {
     let pokes = ["bulbasauro", "charmander", "squirtle", "chikorita", "cyndaquil", "totodile", "treecko", "torchic", "mudkip", "turtwig", "chimchar", "piplup", "snivy", "tepig", "oshawott", "chespin", "fennekin", "froakie", "rowlet", "litten", "popplio"]
     if(!input){
 
-        var resultado;
+        var resultado = [];
         function organizar(){
                 var i = 0;
                 var resultado = [];
