@@ -21,11 +21,12 @@ module.exports.run = async(client, message, embedColor) => {
     let pokes = ["bulbasauro", "charmander", "squirtle", "chikorita", "cyndaquil", "totodile", "treecko", "torchic", "mudkip", "turtwig", "chimchar", "piplup", "snivy", "tepig", "oshawott", "chespin", "fennekin", "froakie", "rowlet", "litten", "popplio"]
     if(!input){
         function organizar(){
-            if(pokes.length > 0){
             let resultado = []
+            if(pokes.length > 0){
             resultado.push("• " + pokes[0] + "\n")
             pokes.shift()
-            return resultado;
+            }else{
+                return resultado;
             }
         }
         message.channel.send(organizar())
