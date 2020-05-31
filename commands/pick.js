@@ -1,11 +1,11 @@
 const Discord = require("discord.js");
 const firebase = require("firebase");
 const database = firebase.database()
-const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g);
 
 module.exports.run = async(client, message, embedColor) => {
     database.ref(`Users/${message.author.id}`)
     .once('value').then(async function(snap){
+    const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g);
 
     if(snap.val() !== null)return message.channel.send("Você já pegou seu primeiro pokemon.");
     var input = args[0].toLowerCase()
