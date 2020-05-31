@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-module.exports.run = async(client, message, embedColor, snap, args) => {
+module.exports.run = async(client, message, embedColor, snap, args, database) => {
     if(snap.val() !== null)return message.channel.send("Você já pegou seu primeiro pokemon.");
     var input = args[0].toLowerCase()
     if(!input)return;

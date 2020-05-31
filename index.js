@@ -15,6 +15,7 @@ const firebase = require("firebase")
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  const database = firebase.database()
 
 const express = require('express');
 const path = require('path');
@@ -62,7 +63,7 @@ client.on("message", async message => {
     cmd = cmd.slice(configBot.prefix.length);
     try{
     let exec = require('./commands/' + cmd + '.js');
-    exec.run(client, message, args, firebase, sender, embedColor, snap);
+    exec.run(client, message, args, firebase, sender, embedColor, snap, database);
     }catch(erro) { console.log(erro) }
 
   })})
