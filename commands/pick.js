@@ -23,19 +23,20 @@ module.exports.run = async(client, message, embedColor) => {
 
         var resultado;
         function organizar(){
-            var i = 0;
-            var resultado = [];
-            index = pokes[i]
-            resultado.push(`• ${caps(index)}\n`)
-            ++i
+                var i = 0;
+                var resultado = [];
+                if(i >= pokes.length)return resultado;
+                index = pokes[i]
+                resultado.push(`• ${caps(index)}\n`)
+                ++i
             repeat()
-            console.log(resultado)
             return resultado;
         }
 
         function repeat(){
             if(resultado.length == pokes.length){organizar(); console.log(resultado)}
         }
+        organizar()
     }else{
     var input = input.toLowerCase()
 
