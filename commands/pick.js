@@ -1,8 +1,9 @@
 const Discord = require("discord.js");
 const firebase = require("firebase");
 const database = firebase.database()
+const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g);
 
-module.exports.run = async(client, message, embedColor, args) => {
+module.exports.run = async(client, message, embedColor) => {
     database.ref(`Users/${message.author.id}`)
     .once('value').then(async function(snap){
 
