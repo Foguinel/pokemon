@@ -48,7 +48,7 @@ express()
 
         return({embed}) // Retorna o Embed.
         }
-        
+
         // Banco de Dados
 
             // Agora vamos definir as informações básicas dos usuários como o pokémon que está usando, seu inventário etc.
@@ -56,6 +56,11 @@ express()
             global.selected = '';
             global.money = '';
             global.inventory = '';
+
+
+                database.ref(`Blacklist`)
+            .once('value').then(async function(snap){
+            if(snap.hasChild(message.author.id))return;
 
             let cmd = message.content.split(" ")[0]; // Ele primeiramente captara o comando dado pelo usuário.
             cmd = cmd.slice(configBot.prefix.length); // Irá retirar o prefixo.
@@ -66,6 +71,6 @@ express()
                 if(!cmd)return; // Ele irá ignorar caso o comando dado pelo usuário não exista.
                 console.log(erro) // Em caso de outros erros, o bot avisará no console.
             }
-    })
+    })})
 
 client.login(process.env.TOKEN) // Por fim, ligamos o bot.
