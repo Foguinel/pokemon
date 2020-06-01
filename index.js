@@ -57,11 +57,9 @@ express()
             global.money = '';
             global.inventory = '';
 
-            var member = message.mentions.members.first()
-
             database.ref(`Blacklist`) // Definimos que estamos trabalhando no módulo do usuário que mandou a mensagem.
         .once('value').then(async function(snap){ // Definimos que agora vamos pegar o valor do módulo.
-            if(database.ref(`Blacklist/${member.id}`) || database.ref(`Blacklist/${args[0]}`))return;
+            if(database.ref(`Blacklist/${message.author.id}`))return;
             let cmd = message.content.split(" ")[0]; // Ele primeiramente captara o comando dado pelo usuário.
             cmd = cmd.slice(configBot.prefix.length); // Irá retirar o prefixo.
             try{
