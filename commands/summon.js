@@ -4,7 +4,7 @@ const configBot = require("../configBot.json")
 
 module.exports.run = async(client, message, embedColor) => { // Chama as outras dependências.
 
-    import embedColor from '../index.js'
+    const embedColor = 0xf8d75d
     const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g); // Define o que são os argumentos.
 
     const fetchPokemon = () => { // Cria um void.

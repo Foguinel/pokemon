@@ -4,7 +4,7 @@ const configBot = require("../configBot.json");
 
 module.exports.run = async(client, message, embedColor) => { // Chama as outras dependências
 
-import embedColor from '../index.js'
+const embedColor = 0xf8d75d
 
 if(message.author.id !== "449940691045318656" || !message.member.hasPermission(['MANAGE_GUILDS'])); // Primeiramente ele verifica se você tem as permissões de usar este comando.
 const m = await message.channel.send("Ping?"); // Ele envia uma mensagem como referências
