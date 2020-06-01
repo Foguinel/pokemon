@@ -8,6 +8,19 @@ module.exports.run = async(client, message, embedColor, errorEmbed) => { // Cham
 
     const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g); // Define o que são os argumentos.
 
+    function errorEmbed(s){
+        //Definimos os erros mais comuns como números para facilitar a troca.
+        if(s == 1)s = `Para utilizar os comandos, é necessário escolher seu primeiro pokémon(${configBot.prefix}pick).`
+
+        let embed = new Discord.MessageEmbed() // Cria um Embed.
+        .setAuthor(`Oopps!`, message.author.avatarURL) // Define o título.
+        .setDescription(`${s}`) // Define a descrição
+        .setFooter(`${client.user.username}`, client.user.avatarURL) // Define o rodapé.
+        .setColor(0xf63152) // E a cor lateral.
+
+        return({embed}) // Retorna o Embed.
+        }
+
     function caps(s){
         if(!s)return;
         s = s.toLowerCase()
