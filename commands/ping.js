@@ -1,7 +1,7 @@
 // Chamando as bibliotecas.
 const Discord = require("discord.js");
 const configBot = require("../configBot.json");
-import embedColor from "../index.js";
+const embedColor = require('../index.js').varToExport;
 
 module.exports.run = async(client, message, embedColor) => { // Chama as outras dependências
 

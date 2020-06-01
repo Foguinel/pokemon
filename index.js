@@ -6,7 +6,8 @@ const firebase = require("firebase");
 const express = require('express');
 const path = require('path');
 const PORT = process.env.PORT || 5000;
-export const embedColor = 0xf8d75d // Define a cor padrão dos Embeds
+const embedColor = 0xf8d75d // Define a cor padrão dos Embeds
+module.exports = { varToExport: embedColor };
 
 // Logo após isso, fazemos a configuração inicial do banco de dados.
 var firebaseConfig = {
