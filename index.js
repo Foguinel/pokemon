@@ -6,6 +6,7 @@ const firebase = require("firebase");
 const express = require('express');
 const path = require('path');
 const PORT = process.env.PORT || 5000;
+const embedColor = 0xf8d75d // Define a cor padrão dos Embeds
 
 // Logo após isso, fazemos a configuração inicial do banco de dados.
 var firebaseConfig = {
@@ -35,7 +36,6 @@ express()
 
         const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g);
         const command = args.shift().toLowerCase(); // Define o que é um coando
-        const embedColor = 0xf8d75d // Define a cor padrão dos Embeds
 
         function errorEmbed(s){
         //Definimos os erros mais comuns como números para facilitar a troca.

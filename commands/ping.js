@@ -1,4 +1,7 @@
-const Discord = require("discord.js"); // Chama o módulo do Discord
+// Chamando as bibliotecas.
+const Discord = require("discord.js");
+const configBot = require("../configBot.json");
+
 module.exports.run = async(client, message, embedColor) => { // Chama as outras dependências
 
 if(message.author.id !== "449940691045318656" || !message.member.hasPermission(['MANAGE_GUILDS'])); // Primeiramente ele verifica se você tem as permissões de usar este comando.
