@@ -16,8 +16,7 @@ module.exports.run = async(client, message, embedColor) => { // Chama as outras 
         
         var name = pokemon['name']; // Compacta linhas de código.
         var id = pokemon['id']; // Compacta linhas de código.
-        if(!pokemonId) pokemonId = id;
-        const image = `https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`; // Pega uma imagem em melhor resolução
+        const image = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`; // Pega uma imagem em melhor resolução
 
         let embed = new Discord.MessageEmbed() // Cria um Embed.
         .setAuthor(`${name}`, image) // Define o título.
