@@ -1,7 +1,7 @@
 // Chamando as bibliotecas.
 const Discord = require("discord.js");
 const firebase = require("firebase");
-const database = firebase.database()
+const database = firebase.database();
 const configBot = require("../configBot.json")
 
 module.exports.run = async(client, message, embedColor, errorEmbed) => { // Chama as outras dependências.
@@ -22,10 +22,10 @@ module.exports.run = async(client, message, embedColor, errorEmbed) => { // Cham
     var input = args[1]; // Define input como a primeira palavra dita pelo usuário.
     let pokes = ["bulbasauro", "charmander", "squirtle", "chikorita", "cyndaquil", "totodile", "treecko", "torchic", "mudkip", "turtwig", "chimchar", "piplup", "snivy", "tepig", "oshawott", "chespin", "fennekin", "froakie", "rowlet", "litten", "popplio"] // Um array no qual define os pokémons iniciais.
     if(!input)return message.channel.send("Bulbasauro   Charmander\nSquirtle   Chikorita\nCyndaquil   Totodile\nTreecko   Torchic\nMudkip   Turtwig\nChimchar   Piplup\nSnivy   Tepig\nOshawott   Chespin\nFennekin   Froakie\nRowlet   Litten\nPopplio") // Caso não contenha nada além do comando, ele listará os pokémons que podem ser escolhidos.
-    var input = input.toLowerCase(); // Transforma o input em minúsculo
+    var input = input.toLowerCase(); // Transforma o input em minúsculo.
 
     let ids = [1, 4, 7, 152, 155, 158, 252, 255, 258, 387, 390, 393, 495, 498, 501, 650, 653, 656, 722, 725, 728] // IDs dos pokémons iniciais.
-    var pokeId = ids[pokes.indexOf(input)]; // Faz o texto se transformar no ID do pokémon
+    var pokeId = ids[pokes.indexOf(input)]; // Faz o texto se transformar no ID do pokémon.
 
         const baseUrl = 'https://pokeapi.co/api/v2/pokemon/' // Define a base de URL.
         const url = baseUrl + `${args[1]}` // Atualiza a URL.

@@ -34,11 +34,9 @@ express()
         if(message.content.indexOf(configBot.prefix) !== 0 || message.author.bot) return; // Pedimos para que ele ignore mensagens de bots e que ele só responda caso comece com o prefixo.
 
         const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g);
-        const command = args.shift().toLowerCase();
-        var embedColor = "0xf8d75d"
-        var memberoa = message.mentions.members.first()
-        if(!memberoa) memberoa = message.author
-
+        const command = args.shift().toLowerCase(); // Define o que é um coando
+        var embedColor = "0xf8d75d" // Define a cor padrão dos Embeds
+        
         function errorEmbed(s){
         //Definimos os erros mais comuns como números para facilitar a troca.
         if(s == 1)s = `Para utilizar os comandos, é necessário escolher seu primeiro pokémon(${configBot.prefix}pick).`
