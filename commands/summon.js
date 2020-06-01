@@ -5,7 +5,7 @@ module.exports.run = async(client, message, embedColor) => { // Chama as outras 
 
     const fetchPokemon = () => { // Cria um void.
         const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'; // Define a base de URL.
-        if(!args[0])const pokemonId = Math.floor(Math.random() * 807) + 1; // Cria um valor randômico entre 1 à 807
+        if(!args[0])var pokemonId = Math.floor(Math.random() * 807) + 1; // Cria um valor randômico entre 1 à 807
         const url = baseUrl + `${pokemonId}`; // Atualiza a URL.
 
         fetch(url) // Pesquisa a URL.
