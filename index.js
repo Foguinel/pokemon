@@ -47,7 +47,7 @@ express()
             global.money = '';
             global.inventory = '';
 
-            database.ref(`Users/${message.author.id}`) // Definimos que estamos trabalhando no módulo do usuário que mandou a mensagem
+            database.ref(`Users/${message.author.id}`) // Definimos que estamos trabalhando no módulo do usuário que mandou a mensagem.
 
             let cmd = message.content.split(" ")[0]; // Ele primeiramente captara o comando dado pelo usuário.
             cmd = cmd.slice(configBot.prefix.length); // Irá retirar o prefixo.
