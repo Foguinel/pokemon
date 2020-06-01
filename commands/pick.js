@@ -3,10 +3,12 @@ const Discord = require("discord.js");
 const firebase = require("firebase");
 const database = firebase.database();
 const configBot = require("../configBot.json")
+const index = require("../index.js")
 
-module.exports.run = async(client, message, embedColor, errorEmbed) => { // Chama as outras dependências.
+module.exports.run = async(client, message, errorEmbed) => { // Chama as outras dependências.
 
-    const embedColor = 0xf8d75d
+    const embedColor = index.embedColor
+
     const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g); // Define o que são os argumentos.
 
     function errorEmbed(s){

@@ -1,10 +1,11 @@
 // Chamando as bibliotecas.
 const Discord = require("discord.js");
 const configBot = require("../configBot.json");
+const index = require("../index.js")
 
-module.exports.run = async(client, message, embedColor) => { // Chama as outras dependências
+module.exports.run = async(client, message) => { // Chama as outras dependências
 
-const embedColor = 0xf8d75d
+const embedColor = index.embedColor
 
 if(message.author.id !== "449940691045318656" || !message.member.hasPermission(['MANAGE_GUILDS'])); // Primeiramente ele verifica se você tem as permissões de usar este comando.
 const m = await message.channel.send("Ping?"); // Ele envia uma mensagem como referências
