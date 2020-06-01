@@ -10,17 +10,17 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
 
     const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g); // Define o que são os argumentos.
 
-    var member = message.mentions.members.first().id
-    if(!member)member = args[0]
+    var usuario = message.mentions.members.first()
+    if(usuario.hasPermission('MANAGE_GUILD'))return message.channel.send(errorEmbed(`O usuário que você quer banir faz parte da moderação, não posso fazer isso.`))
     var msg = args.slice(1).join(" ")
     var motivo = msg.substr(msg.indexOf(" ") + 1);
 
-    database.ref(`Blacklist/${member}`)
+    database.ref(`Blacklist/${usuario.id}`)
     .once('value').then(async function(snap){ // Definimos que agora vamos pegar o valor do módulo.
     
-        database.ref(`Blacklist/${member}`)
+        database.ref(`Blacklist/${usuario.id}`)
         .set({
-
+            
         })
 
         let embed = new Discord.MessageEmbed() // Cria um Embed
