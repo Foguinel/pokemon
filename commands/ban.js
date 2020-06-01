@@ -38,7 +38,7 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
 
         let embed = new Discord.MessageEmbed() // Cria um Embed
         .setAuthor("Banimento", message.author.avatarURL) // Define o título
-        .setDescription(`Usuário punido: <@${usuario}>\nBanido por: ${message.author}\nMotivo: ${motivo}`) // Calcula o tempo necessário para editar a mensagem
+        .setDescription(`Usuário punido: ${usuario}\nBanido por: ${message.author}\nMotivo: ${motivo}`) // Calcula o tempo necessário para editar a mensagem
         .setTimestamp() // Define o horário da mensagem
         .setFooter(`${client.user.username}`, client.user.avatarURL) // Define o rodapé
         .setColor(0xf8d75d) // E a cor lateral
