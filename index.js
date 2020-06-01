@@ -57,9 +57,6 @@ express()
             global.money = '';
             global.inventory = '';
 
-            database.ref(`Blacklist/${message.author.id}`) // Definimos que estamos trabalhando no módulo do usuário que mandou a mensagem.
-        .once('value').then(async function(snap){ // Definimos que agora vamos pegar o valor do módulo.
-            if(database.ref(`Blacklist/${message.author.id}`))return;
             let cmd = message.content.split(" ")[0]; // Ele primeiramente captara o comando dado pelo usuário.
             cmd = cmd.slice(configBot.prefix.length); // Irá retirar o prefixo.
             try{
@@ -68,7 +65,7 @@ express()
             }catch(erro){
                 if(!cmd)return; // Ele irá ignorar caso o comando dado pelo usuário não exista.
                 console.log(erro) // Em caso de outros erros, o bot avisará no console.
-            }}
-    )})
+            }
+    })
 
 client.login(process.env.TOKEN) // Por fim, ligamos o bot.

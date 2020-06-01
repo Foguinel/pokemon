@@ -15,7 +15,7 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission([
     var msg = message.join(" ")
     var motivo = msg.substr(msg.indexOf(" ") + 1);
 
-    database.ref(`Blacklist`)
+    database.ref(`Blacklist/${member}`)
     .once('value').then(async function(snap){ // Definimos que agora vamos pegar o valor do módulo.
     
         database.ref(`Blacklist/${member}`)
