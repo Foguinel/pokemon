@@ -12,7 +12,7 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission([
 
     var member = message.mentions.members.first()
     if(!member && args[0])member = args[0]
-    var msg = message.join(" ")
+    var msg = message.content(" ")
     var motivo = msg.substr(msg.indexOf(" ") + 1);
 
     database.ref(`Blacklist/${member}`)

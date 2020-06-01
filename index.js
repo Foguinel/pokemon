@@ -48,7 +48,7 @@ express()
 
         return({embed}) // Retorna o Embed.
         }
-
+        
         // Banco de Dados
 
             // Agora vamos definir as informações básicas dos usuários como o pokémon que está usando, seu inventário etc.
