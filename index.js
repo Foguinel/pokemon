@@ -57,7 +57,6 @@ express()
             global.money = '';
             global.inventory = '';
 
-
                 database.ref(`Blacklist`)
             .once('value').then(async function(snap){
             if(snap.hasChild(message.author.id))return;

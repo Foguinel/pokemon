@@ -8,10 +8,24 @@ module.exports.run = async(client, message, errorEmbed) => { // Chama as outras 
 
 if(message.author.id !== "449940691045318656" || !message.member.hasPermission('MANAGE_ROLES')); // Primeiramente ele verifica se você tem as permissões de usar este comando.
 
+    function errorEmbed(s){
+        //Definimos os erros mais comuns como números para facilitar a troca.
+        if(s == 1)s = `Para utilizar os comandos, é necessário escolher seu primeiro pokémon(${configBot.prefix}pick).`
+
+        let embed = new Discord.MessageEmbed() // Cria um Embed.
+        .setAuthor(`Oopps!`, message.author.avatarURL) // Define o título.
+        .setDescription(`${s}`) // Define a descrição
+        .setFooter(`${client.user.username}`, client.user.avatarURL) // Define o rodapé.
+        .setColor(0xf63152) // E a cor lateral.
+
+        return({embed}) // Retorna o Embed.
+        }
+
     const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g); // Define o que são os argumentos.
 
     var member = message.mentions.members.first().id
-    if(!member && args[0])member = args[0]
+    if(!member)member = args[0]
+    if(member.hasPermission('MANAGE_GUILD'))return message.channel.send(errorEmbed(`O usuário que você quer banir faz parte da moderação, não posso fazer isso.`))
     var msg = args.slice(1).join(" ")
     var motivo = msg.substr(msg.indexOf(" ") + 1);
 
