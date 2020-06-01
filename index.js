@@ -35,9 +35,22 @@ express()
 
         const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g);
         const command = args.shift().toLowerCase();
-        var embedColor = "0x000"
+        var embedColor = "0xf8d75d"
         var memberoa = message.mentions.members.first()
         if(!memberoa) memberoa = message.author
+
+        function errorEmbed(s){
+        //Definimos os erros mais comuns como números para facilitar a troca.
+        if(s == 1)s = `Para utilizar os comandos, é necessário escolher seu primeiro pokémon(${configBot.prefix}pick).`
+
+        let embed = new Discord.MessageEmbed() // Cria um Embed.
+        .setAuthor(`Oopps!`, message.author.avatarURL) // Define o título.
+        .setDescription(`${s}`) // Define a descrição
+        .setFooter(`${client.user.username}`, client.user.avatarURL) // Define o rodapé.
+        .setColor(0xf63152) // E a cor lateral.
+
+        return({embed}) // Retorna o Embed.
+        }
 
         // Banco de Dados
 
@@ -53,7 +66,7 @@ express()
             cmd = cmd.slice(configBot.prefix.length); // Irá retirar o prefixo.
             try{
             let exec = require('./commands/' + cmd + '.js'); // Irá procurar o comando.
-            exec.run(client, message, args, embedColor, database); // Ele irá enviar as dependências para os outros arquivos.
+            exec.run(client, message, args, embedColor, database, errorEmbed); // Ele irá enviar as dependências para os outros arquivos.
             }catch(erro){
                 if(!cmd)return; // Ele irá ignorar caso o comando dado pelo usuário não exista.
                 console.log(erro) // Em caso de outros erros, o bot avisará no console.

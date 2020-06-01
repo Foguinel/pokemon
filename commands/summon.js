@@ -1,4 +1,4 @@
-// Chamando as bibliotecas
+// Chamando as bibliotecas.
 const Discord = require("discord.js");
 const configBot = require("../configBot.json") 
 module.exports.run = async(client, message, embedColor) => { // Chama as outras dependências.
@@ -21,7 +21,6 @@ module.exports.run = async(client, message, embedColor) => { // Chama as outras 
 
         let embed = new Discord.MessageEmbed() // Cria um Embed.
         .setAuthor(`${name}`, image) // Define o título.
-        //.setDescription("") // Calcula o tempo necessário para editar a mensagem.
         .setImage(image) // Define a imagem principal.
         .setFooter(`${client.user.username}`, client.user.avatarURL) // Define o rodapé.
         .setColor(embedColor) // E a cor lateral.
