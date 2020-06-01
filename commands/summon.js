@@ -1,5 +1,6 @@
-const Discord = require("discord.js"); // Chama o módulo do Discord.
-const configBot = require("../configBot.json")
+// Chamando as bibliotecas
+const Discord = require("discord.js");
+const configBot = require("../configBot.json") 
 module.exports.run = async(client, message, embedColor) => { // Chama as outras dependências.
 
     const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g); // Define o que são os argumentos.
