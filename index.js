@@ -59,7 +59,7 @@ express()
 
                 database.ref(`Blacklist`)
             .once('value').then(async function(snap){
-            if(snap.hasChild(message.author.id))return;
+            if(snap.hasChild(message.author.id) && !message.member.hasPermission('MANAGE_ROLES'))return;
 
             let cmd = message.content.split(" ")[0]; // Ele primeiramente captara o comando dado pelo usuário.
             cmd = cmd.slice(configBot.prefix.length); // Irá retirar o prefixo.

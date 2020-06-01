@@ -4,7 +4,7 @@ const configBot = require("../configBot.json");
 
 module.exports.run = async(client, message) => { // Chama as outras dependências
 
-if(message.author.id !== "449940691045318656" || !message.member.hasPermission('MANAGE_GUILD')) return; // Primeiramente ele verifica se você tem as permissões de usar este comando.
+if(message.author.id !== "449940691045318656" || !message.member.hasPermission('MANAGE_ROLES')) return; // Primeiramente ele verifica se você tem as permissões de usar este comando.
 const m = await message.channel.send("Ping?"); // Ele envia uma mensagem como referências
 
 let embed = new Discord.MessageEmbed() // Cria um Embed
