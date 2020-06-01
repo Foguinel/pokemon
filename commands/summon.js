@@ -1,11 +1,9 @@
 // Chamando as bibliotecas.
 const Discord = require("discord.js");
 const configBot = require("../configBot.json")
-const index = require("../index.js")
 
 module.exports.run = async(client, message) => { // Chama as outras dependências.
 
-    const embedColor = index.embedColor
     const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g); // Define o que são os argumentos.
 
     const fetchPokemon = () => { // Cria um void.
@@ -29,7 +27,7 @@ module.exports.run = async(client, message) => { // Chama as outras dependência
         .setAuthor(`${name}`, image) // Define o título.
         .setImage(image) // Define a imagem principal.
         .setFooter(`${client.user.username}`, client.user.avatarURL) // Define o rodapé.
-        .setColor(embedColor) // E a cor lateral.
+        .setColor(0xf8d75d) // E a cor lateral.
 
         message.channel.send({embed}) // Envia o Embed.
         })
