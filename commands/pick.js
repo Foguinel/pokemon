@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 const firebase = require("firebase");
 const database = firebase.database();
 const configBot = require("../configBot.json")
+import embedColor from "../index.js";
 
 module.exports.run = async(client, message, embedColor, errorEmbed) => { // Chama as outras dependências.
 
