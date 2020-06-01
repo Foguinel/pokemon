@@ -63,7 +63,7 @@ express()
             cmd = cmd.slice(configBot.prefix.length); // Irá retirar o prefixo.
             try{
             let exec = require('./commands/' + cmd + '.js'); // Irá procurar o comando.
-            exec.run(client, message, args, embedColor, database, errorEmbed); // Ele irá enviar as dependências para os outros arquivos.
+            exec.run(client, message, args, database, errorEmbed); // Ele irá enviar as dependências para os outros arquivos.
             }catch(erro){
                 if(!cmd)return; // Ele irá ignorar caso o comando dado pelo usuário não exista.
                 console.log(erro) // Em caso de outros erros, o bot avisará no console.
