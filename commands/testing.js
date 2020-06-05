@@ -33,10 +33,10 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
                 if(keys.indexOf(key) == -1)
                 {
 
-                    var atk1 = moves[Math.floor(Math.random() * moves.indexOf - 1) + 1]
-                    var atk2 = moves[Math.floor(Math.random() * moves.indexOf - 1) + 1]
-                    var atk3 = moves[Math.floor(Math.random() * moves.indexOf - 1) + 1]
-                    var atk4 = moves[Math.floor(Math.random() * moves.indexOf - 1) + 1]
+                    var atk1 = Math.floor(Math.random() * moves.indexOf - 1) + 1
+                    var atk2 = Math.floor(Math.random() * moves.indexOf - 1) + 1
+                    var atk3 = Math.floor(Math.random() * moves.indexOf - 1) + 1
+                    var atk4 = Math.floor(Math.random() * moves.indexOf - 1) + 1
 
                     keys.push(moves[atk1].move.name, moves[atk2].move.name, moves[atk3].move.name, moves[atk4].move.name);
                 }
