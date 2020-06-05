@@ -61,9 +61,9 @@ express()
                         {
                             keys.push(moves[i].move.name);
                         }
+                        return keys;
                     })}
-
-                return keys;
+                    return keys;
             })
         }
         fetchPokemon() // Por fim, ele chama o void.
