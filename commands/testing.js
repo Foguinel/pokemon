@@ -34,8 +34,6 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
                 {
                     keys.push(moves[i].move.name);
                 }
-            });
-        }
 
         var atk1 = keys[Math.floor(Math.random() * moves.indexOf - 1) + 1]
         var atk2 = keys[Math.floor(Math.random() * moves.indexOf - 1) + 1]
@@ -60,6 +58,8 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
         message.channel.send({embed}) // Envia o Embed
     })
     // })
+    };
+})
 }
 fetchPokemon() // Por fim, ele chama o void.
 }
