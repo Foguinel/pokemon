@@ -11,7 +11,7 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
     import { getAtk } from '../index.js'
 
     const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g); // Define o que são os argumentos.
-    console.log(funcGetAtk)
+    console.log(getAtk)
 
 }
 
