@@ -32,7 +32,7 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
             Object.keys(moves[i]).forEach(function(key){
                 if(keys.indexOf(key) == -1)
                 {
-                    keys.push(moves[i].text);
+                    keys.push(moves[i].move.name);
                 }
             });
         }
