@@ -40,6 +40,8 @@ const fetchPokemon = () => { // Cria um void.
 fetchPokemon() // Por fim, ele chama o void.
 }
 
+exports.getAtk = atk()
+
 // Logo após isso, fazemos a configuração inicial do banco de dados.
 var firebaseConfig = {
     apiKey: process.env.KEY,
@@ -99,9 +101,6 @@ express()
             try{
             let exec = require('./commands/' + cmd + '.js'); // Irá procurar o comando.
             exec.run(client, message, args, database, errorEmbed); // Ele irá enviar as dependências para os outros arquivos.
-            module.exports = {
-                getAtk: atk()
-            }
             }catch(erro){
                 if(!cmd)return; // Ele irá ignorar caso o comando dado pelo usuário não exista.
                 console.log(erro) // Em caso de outros erros, o bot avisará no console.
