@@ -39,6 +39,7 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
         var atk2 = keys[Math.floor(Math.random() * moves.indexOf - 1) + 1]
         var atk3 = keys[Math.floor(Math.random() * moves.indexOf - 1) + 1]
         var atk4 = keys[Math.floor(Math.random() * moves.indexOf - 1) + 1]
+            })}
 
     // database.ref(`Test/Pokémon/${pokemon}`)
     // .once('value').then(async function(snap){ // Definimos que agora vamos pegar o valor do módulo.
@@ -58,8 +59,6 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
         message.channel.send({embed}) // Envia o Embed
     })
     // })
-    };
-})
 }
 fetchPokemon() // Por fim, ele chama o void.
 }
