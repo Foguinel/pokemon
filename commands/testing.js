@@ -44,14 +44,14 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
             
     //     })
 
-        atk1 = Math.floor(Math.random() * keys.indexOf) + 1
-        atk2 = Math.floor(Math.random() * keys.indexOf) + 1
-        atk3 = Math.floor(Math.random() * keys.indexOf) + 1
-        atk4 = Math.floor(Math.random() * keys.indexOf) + 1
+        atk1 = Math.floor(Math.random() * keys.length) + 1
+        atk2 = Math.floor(Math.random() * keys.length) + 1
+        atk3 = Math.floor(Math.random() * keys.length) + 1
+        atk4 = Math.floor(Math.random() * keys.length) + 1
 
         let embed = new Discord.MessageEmbed() // Cria um Embed
         .setAuthor(`${name}`, message.author.avatarURL) // Define o título
-        .setDescription(`- ${keys[0]}`) // 
+        .setDescription(`- ${atk1}\n- ${atk2}\n- ${atk3}\n- ${atk4}`) // 
         .setTimestamp() // Define o horário da mensagem
         .setFooter(`${client.user.username}`, client.user.avatarURL) // Define o rodapé
         .setColor(0xf8d75d) // E a cor lateral
