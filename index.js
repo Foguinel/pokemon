@@ -30,39 +30,6 @@ express()
 .get('/', (req, res) => res.render('pages/index'))
 .listen(PORT, () => console.log(`Iniciado na porta ${PORT}`))
 
-    export function getAtk(){
-    const fetchPokemon = () => { // Cria um void.
-        const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'; // Define a base de URL.
-        var pokemonId = args[1]; // Define pokemonId como a primeira palavra dita pelo usuário.
-        if(!args[1])var pokemonId = Math.floor(Math.random() * 807) + 1; // Define pokemonId como um valor randômico entre 1 à 807.
-        const url = baseUrl + `${pokemonId}`; // Atualiza a URL.
-
-        fetch(url) // Pesquisa a URL.
-        .then(response => response.json()) // Ele transforma informações dadas pela API em um JSON.
-        .then(pokemon => { // Com base no JSON ele extrai informações sobre o pokemon.
-        
-        var name = pokemon['name']; // Compacta linhas de código.
-        var id = pokemon['id']; // Compacta linhas de código.
-        const image = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`; // Pega uma imagem em melhor resolução
-        
-        var moves = pokemon['moves']
-
-        var keys = [];
-        for(var i = 0;i < Object.keys(moves).length;i++)
-        {
-            Object.keys(moves[i]).forEach(function(key){
-                if(keys.indexOf(key) == -1)
-                {
-                    keys.push(moves[i].move.name);
-                }
-            })}
-
-        return keys;
-    })
-}
-fetchPokemon() // Por fim, ele chama o void.
-}
-
     client.on("message", async message => {
         if(message.content.indexOf(configBot.prefix) !== 0 || message.author.bot) return; // Pedimos para que ele ignore mensagens de bots e que ele só responda caso comece com o prefixo.
 
@@ -99,6 +66,40 @@ fetchPokemon() // Por fim, ele chama o void.
             try{
             let exec = require('./commands/' + cmd + '.js'); // Irá procurar o comando.
             exec.run(client, message, args, database, errorEmbed); // Ele irá enviar as dependências para os outros arquivos.
+            module.exports = {
+                getAtk: {
+    const fetchPokemon = () => { // Cria um void.
+        const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'; // Define a base de URL.
+        var pokemonId = args[1]; // Define pokemonId como a primeira palavra dita pelo usuário.
+        if(!args[1])var pokemonId = Math.floor(Math.random() * 807) + 1; // Define pokemonId como um valor randômico entre 1 à 807.
+        const url = baseUrl + `${pokemonId}`; // Atualiza a URL.
+
+        fetch(url) // Pesquisa a URL.
+        .then(response => response.json()) // Ele transforma informações dadas pela API em um JSON.
+        .then(pokemon => { // Com base no JSON ele extrai informações sobre o pokemon.
+        
+        var name = pokemon['name']; // Compacta linhas de código.
+        var id = pokemon['id']; // Compacta linhas de código.
+        const image = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`; // Pega uma imagem em melhor resolução
+        
+        var moves = pokemon['moves']
+
+        var keys = [];
+        for(var i = 0;i < Object.keys(moves).length;i++)
+        {
+            Object.keys(moves[i]).forEach(function(key){
+                if(keys.indexOf(key) == -1)
+                {
+                    keys.push(moves[i].move.name);
+                }
+            })}
+
+        return keys;
+    })
+}
+fetchPokemon() // Por fim, ele chama o void.
+}
+            }
             }catch(erro){
                 if(!cmd)return; // Ele irá ignorar caso o comando dado pelo usuário não exista.
                 console.log(erro) // Em caso de outros erros, o bot avisará no console.
