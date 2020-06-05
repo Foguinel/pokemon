@@ -36,7 +36,11 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
                 }
             });
         }
-        console.log(keys);
+
+        var atk1 = moves[Math.floor(Math.random() * moves.indexOf - 1) + 1]
+        var atk2 = moves[Math.floor(Math.random() * moves.indexOf - 1) + 1]
+        var atk3 = moves[Math.floor(Math.random() * moves.indexOf - 1) + 1]
+        var atk4 = moves[Math.floor(Math.random() * moves.indexOf - 1) + 1]
 
     // database.ref(`Test/Pokémon/${pokemon}`)
     // .once('value').then(async function(snap){ // Definimos que agora vamos pegar o valor do módulo.
@@ -48,7 +52,7 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
 
         let embed = new Discord.MessageEmbed() // Cria um Embed
         .setAuthor(`${name}`, message.author.avatarURL) // Define o título
-        .setDescription(`${moves}`) // 
+        .setDescription(`- ${atk1}\n- ${atk2}\n- ${atk3}\n- ${atk4}`) // 
         .setTimestamp() // Define o horário da mensagem
         .setFooter(`${client.user.username}`, client.user.avatarURL) // Define o rodapé
         .setColor(0xf8d75d) // E a cor lateral
