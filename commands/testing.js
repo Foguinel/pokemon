@@ -13,10 +13,7 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
     const fetchPokemon = () => { // Cria um void.
         const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'; // Define a base de URL.
         var pokemonId = args[1]; // Define pokemonId como a primeira palavra dita pelo usuário.
-        if
-        
-        
-        (!args[1])var pokemonId = Math.floor(Math.random() * 807) + 1; // Define pokemonId como um valor randômico entre 1 à 807.
+        if(!args[1])var pokemonId = Math.floor(Math.random() * 807) + 1; // Define pokemonId como um valor randômico entre 1 à 807.
         const url = baseUrl + `${pokemonId}`; // Atualiza a URL.
 
         fetch(url) // Pesquisa a URL.
@@ -47,16 +44,16 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
 
         // }
 
-    database.ref(`Test/Pokémon/${pokemon}`)
-    .once('value').then(async function(snap){ // Definimos que agora vamos pegar o valor do módulo.
+    // database.ref(`Test/Pokémon/${pokemon}`)
+    // .once('value').then(async function(snap){ // Definimos que agora vamos pegar o valor do módulo.
     
-        database.ref(`Test/Pokémon/${pokemon}`)
-        .set({
+    //     database.ref(`Test/Pokémon/${pokemon}`)
+    //     .set({
             
-        })
+    //     })
 
         let embed = new Discord.MessageEmbed() // Cria um Embed
-        .setAuthor("Lorem", message.author.avatarURL) // Define o título
+        .setAuthor(`${name}`, message.author.avatarURL) // Define o título
         .setDescription(`${moves}`) // 
         .setTimestamp() // Define o horário da mensagem
         .setFooter(`${client.user.username}`, client.user.avatarURL) // Define o rodapé
@@ -64,7 +61,7 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
 
         message.channel.send({embed}) // Envia o Embed
     })
-    })
+    // })
 }
 fetchPokemon() // Por fim, ele chama o void.
 }
