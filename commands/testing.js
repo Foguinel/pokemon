@@ -25,6 +25,7 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
         const image = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`; // Pega uma imagem em melhor resolução
         
         var moves = pokemon['moves']
+        var atk1; var atk2; var atk3; var atk4;
 
         var keys = [];
         for(var i = 0;i < Object.keys(moves).length;i++)
@@ -35,11 +36,11 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
                     keys.push(moves[i].move.name);
                 }
 
-        global.atk1 = keys[Math.floor(Math.random() * moves.indexOf - 1) + 1]
-        global.atk2 = keys[Math.floor(Math.random() * moves.indexOf - 1) + 1]
-        global.atk3 = keys[Math.floor(Math.random() * moves.indexOf - 1) + 1]
-        global.atk4 = keys[Math.floor(Math.random() * moves.indexOf - 1) + 1]
-            })
+        var atk1 = keys[Math.floor(Math.random() * moves.indexOf - 1) + 1]
+        var atk2 = keys[Math.floor(Math.random() * moves.indexOf - 1) + 1]
+        var atk3 = keys[Math.floor(Math.random() * moves.indexOf - 1) + 1]
+        var atk4 = keys[Math.floor(Math.random() * moves.indexOf - 1) + 1]
+            })}
 
     // database.ref(`Test/Pokémon/${pokemon}`)
     // .once('value').then(async function(snap){ // Definimos que agora vamos pegar o valor do módulo.
@@ -57,7 +58,7 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
         .setColor(0xf8d75d) // E a cor lateral
 
         message.channel.send({embed}) // Envia o Embed
-        }
+        
     })
     // })
 }
