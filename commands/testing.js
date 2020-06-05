@@ -24,25 +24,19 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
         var id = pokemon['id']; // Compacta linhas de código.
         const image = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`; // Pega uma imagem em melhor resolução
         
-        var moves = pokemon['moves']
+        var moves = pokemon['moves']['name']
 
-        // function getAll(array, size){
-        //     function geting(t){
-        //     var i;
-        //     if(t.length === size){
-        //         result.push(t);
-        //         return;
-        //     }
-        //     for (i = 0; i < array.length; i++){
-        //         getting(t.concat([array[i]]))
-        //     }
-        //     }
-
-        //     var result = [];
-        //     geting([])
-        //     return result;
-
-        // }
+        var keys = [];
+        for(var i = 0;i < Object.keys(moves).length;i++)
+        {
+            Object.keys(moves[i]).forEach(function(key){
+                if(keys.indexOf(key) == -1)
+                {
+                    keys.push(moves[i].text);
+                }
+            });
+        }
+        console.log(keys);
 
     // database.ref(`Test/Pokémon/${pokemon}`)
     // .once('value').then(async function(snap){ // Definimos que agora vamos pegar o valor do módulo.
