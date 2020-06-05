@@ -32,15 +32,17 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
             Object.keys(moves[i]).forEach(function(key){
                 if(keys.indexOf(key) == -1)
                 {
-                    keys.push(moves[i].move.name);
+
+                    var atk1 = moves[Math.floor(Math.random() * moves.indexOf - 1) + 1]
+                    var atk2 = moves[Math.floor(Math.random() * moves.indexOf - 1) + 1]
+                    var atk3 = moves[Math.floor(Math.random() * moves.indexOf - 1) + 1]
+                    var atk4 = moves[Math.floor(Math.random() * moves.indexOf - 1) + 1]
+
+                    keys.push(moves[atk1].move.name, moves[atk2].move.name, moves[atk3].move.name, moves[atk4].move.name);
                 }
             });
         }
 
-        var atk1 = moves[Math.floor(Math.random() * moves.indexOf - 1) + 1]
-        var atk2 = moves[Math.floor(Math.random() * moves.indexOf - 1) + 1]
-        var atk3 = moves[Math.floor(Math.random() * moves.indexOf - 1) + 1]
-        var atk4 = moves[Math.floor(Math.random() * moves.indexOf - 1) + 1]
 
     // database.ref(`Test/Pokémon/${pokemon}`)
     // .once('value').then(async function(snap){ // Definimos que agora vamos pegar o valor do módulo.
