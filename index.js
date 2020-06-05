@@ -7,6 +7,39 @@ const express = require('express');
 const path = require('path');
 const PORT = process.env.PORT || 5000;
 
+function atk(){
+const fetchPokemon = () => { // Cria um void.
+        const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'; // Define a base de URL.
+        var pokemonId = args[1]; // Define pokemonId como a primeira palavra dita pelo usuário.
+        if(!args[1])var pokemonId = Math.floor(Math.random() * 807) + 1; // Define pokemonId como um valor randômico entre 1 à 807.
+        const url = baseUrl + `${pokemonId}`; // Atualiza a URL.
+
+        fetch(url) // Pesquisa a URL.
+        .then(response => response.json()) // Ele transforma informações dadas pela API em um JSON.
+        .then(pokemon => { // Com base no JSON ele extrai informações sobre o pokemon.
+        
+        var name = pokemon['name']; // Compacta linhas de código.
+        var id = pokemon['id']; // Compacta linhas de código.
+        const image = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`; // Pega uma imagem em melhor resolução
+        
+        var moves = pokemon['moves']
+
+        var keys = [];
+        for(var i = 0;i < Object.keys(moves).length;i++)
+        {
+            Object.keys(moves[i]).forEach(function(key){
+                if(keys.indexOf(key) == -1)
+                {
+                    keys.push(moves[i].move.name);
+                }
+            })}
+
+        return keys;
+    })
+}
+fetchPokemon() // Por fim, ele chama o void.
+}
+
 // Logo após isso, fazemos a configuração inicial do banco de dados.
 var firebaseConfig = {
     apiKey: process.env.KEY,
@@ -67,38 +100,7 @@ express()
             let exec = require('./commands/' + cmd + '.js'); // Irá procurar o comando.
             exec.run(client, message, args, database, errorEmbed); // Ele irá enviar as dependências para os outros arquivos.
             module.exports = {
-                getAtk: {
-    const fetchPokemon = () => { // Cria um void.
-        const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'; // Define a base de URL.
-        var pokemonId = args[1]; // Define pokemonId como a primeira palavra dita pelo usuário.
-        if(!args[1])var pokemonId = Math.floor(Math.random() * 807) + 1; // Define pokemonId como um valor randômico entre 1 à 807.
-        const url = baseUrl + `${pokemonId}`; // Atualiza a URL.
-
-        fetch(url) // Pesquisa a URL.
-        .then(response => response.json()) // Ele transforma informações dadas pela API em um JSON.
-        .then(pokemon => { // Com base no JSON ele extrai informações sobre o pokemon.
-        
-        var name = pokemon['name']; // Compacta linhas de código.
-        var id = pokemon['id']; // Compacta linhas de código.
-        const image = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`; // Pega uma imagem em melhor resolução
-        
-        var moves = pokemon['moves']
-
-        var keys = [];
-        for(var i = 0;i < Object.keys(moves).length;i++)
-        {
-            Object.keys(moves[i]).forEach(function(key){
-                if(keys.indexOf(key) == -1)
-                {
-                    keys.push(moves[i].move.name);
-                }
-            })}
-
-        return keys;
-    })
-}
-fetchPokemon() // Por fim, ele chama o void.
-}
+                getAtk: atk()
             }
             }catch(erro){
                 if(!cmd)return; // Ele irá ignorar caso o comando dado pelo usuário não exista.
