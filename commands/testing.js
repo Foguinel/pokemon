@@ -9,7 +9,7 @@ module.exports.run = async(client, message, errorEmbed, funcGetAtk) => { // Cham
 if(message.author.id !== "449940691045318656" || !message.member.hasPermission('MANAGE_ROLES')); // Primeiramente ele verifica se você tem as permissões de usar este comando.
 
     const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g); // Define o que são os argumentos.
-    console.log(funcGetAtk)
+    console.log(funcGetAtk())
 
 }
 
