@@ -24,7 +24,7 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
         var id = pokemon['id']; // Compacta linhas de código.
         const image = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`; // Pega uma imagem em melhor resolução
         
-        var moves = pokemon['moves']['name']
+        var moves = pokemon['moves']
 
         var keys = [];
         for(var i = 0;i < Object.keys(moves).length;i++)
