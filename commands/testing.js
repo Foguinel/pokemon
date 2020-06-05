@@ -8,8 +8,10 @@ module.exports.run = async(client, message, errorEmbed) => { // Chama as outras 
 
 if(message.author.id !== "449940691045318656" || !message.member.hasPermission('MANAGE_ROLES')); // Primeiramente ele verifica se você tem as permissões de usar este comando.
 
+    import { funcGetAtk } from '../index'
+
     const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g); // Define o que são os argumentos.
-    console.log(import("../index.js").funcGetAtk())
+    console.log(funcGetAtk)
 
 }
 

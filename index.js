@@ -30,7 +30,7 @@ express()
 .get('/', (req, res) => res.render('pages/index'))
 .listen(PORT, () => console.log(`Iniciado na porta ${PORT}`))
 
-    exports.funcGetAtk = function getAtk(){
+    export function getAtk(){
     const fetchPokemon = () => { // Cria um void.
         const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'; // Define a base de URL.
         var pokemonId = args[1]; // Define pokemonId como a primeira palavra dita pelo usuário.
