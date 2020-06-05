@@ -36,11 +36,11 @@ express()
         const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g);
         const command = args.shift().toLowerCase(); // Define o que é um coando
 
-        function atk(s){
+        exports.getAtk = function atk(){
         const fetchPokemon = () => { // Cria um void.
                 const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'; // Define a base de URL.
-                var pokemonId = s; // Define pokemonId como a primeira palavra dita pelo usuário.
-                if(s)var pokemonId = Math.floor(Math.random() * 807) + 1; // Define pokemonId como um valor randômico entre 1 à 807.
+                var pokemonId = args[0]; // Define pokemonId como a primeira palavra dita pelo usuário.
+                if(args[0])var pokemonId = Math.floor(Math.random() * 807) + 1; // Define pokemonId como um valor randômico entre 1 à 807.
                 const url = baseUrl + `${pokemonId}`; // Atualiza a URL.
 
                 fetch(url) // Pesquisa a URL.
@@ -68,8 +68,6 @@ express()
         }
         fetchPokemon() // Por fim, ele chama o void.
         }
-
-        exports.getAtk = atk
 
         function errorEmbed(s){
         //Definimos os erros mais comuns como números para facilitar a troca.
