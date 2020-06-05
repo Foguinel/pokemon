@@ -25,7 +25,6 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
         const image = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`; // Pega uma imagem em melhor resolução
         
         var moves = pokemon['moves']
-        var atk1; var atk2; var atk3; var atk4;
 
         var keys = [];
         for(var i = 0;i < Object.keys(moves).length;i++)
@@ -35,11 +34,6 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
                 {
                     keys.push(moves[i].move.name);
                 }
-
-        var atk1 = keys[Math.floor(Math.random() * moves.indexOf - 1) + 1]
-        var atk2 = keys[Math.floor(Math.random() * moves.indexOf - 1) + 1]
-        var atk3 = keys[Math.floor(Math.random() * moves.indexOf - 1) + 1]
-        var atk4 = keys[Math.floor(Math.random() * moves.indexOf - 1) + 1]
             })}
 
     // database.ref(`Test/Pokémon/${pokemon}`)
@@ -50,6 +44,11 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
             
     //     })
 
+        atk1 = keys[Math.floor(Math.random() * keys.indexOf) + 1]
+        atk2 = keys[Math.floor(Math.random() * keys.indexOf) + 1]
+        atk3 = keys[Math.floor(Math.random() * keys.indexOf) + 1]
+        atk4 = keys[Math.floor(Math.random() * keys.indexOf) + 1]
+        
         let embed = new Discord.MessageEmbed() // Cria um Embed
         .setAuthor(`${name}`, message.author.avatarURL) // Define o título
         .setDescription(`- ${atk1}\n- ${atk2}\n- ${atk3}\n- ${atk4}`) // 
