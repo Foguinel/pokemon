@@ -48,10 +48,10 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
         atk2 = keys[Math.floor(Math.random() * keys.indexOf) + 1]
         atk3 = keys[Math.floor(Math.random() * keys.indexOf) + 1]
         atk4 = keys[Math.floor(Math.random() * keys.indexOf) + 1]
-        
+
         let embed = new Discord.MessageEmbed() // Cria um Embed
         .setAuthor(`${name}`, message.author.avatarURL) // Define o título
-        .setDescription(`- ${atk1}\n- ${atk2}\n- ${atk3}\n- ${atk4}`) // 
+        .setDescription(`- ${keys}`) // 
         .setTimestamp() // Define o horário da mensagem
         .setFooter(`${client.user.username}`, client.user.avatarURL) // Define o rodapé
         .setColor(0xf8d75d) // E a cor lateral
