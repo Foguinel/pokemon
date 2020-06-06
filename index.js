@@ -55,10 +55,7 @@ express()
                 for(var i = 0;i < Object.keys(moves).length;i++)
                 {
                     Object.keys(moves[i]).forEach(function(key){
-                        if(keys.indexOf(key) == -1)
-                        {
                             keys.push(moves[i].move.name);
-                        }
                     })}
                     return keys;
             })
