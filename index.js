@@ -52,10 +52,10 @@ express()
                 var moves = pokemon['moves']
 
                 var keys = [];
-                for(var i = 0;i < Object.keys(moves).length;i++)
+                for(var i = 0;i <= Object.keys(moves).length;i++)
                 {
                     Object.keys(moves[i]).forEach(function(key){
-                            keys.push(moves[i].move.name);
+                            keys.push(moves[0].move.name);
                     })}
                     return keys;
             })
