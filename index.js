@@ -39,9 +39,7 @@ express()
         exports.getAtk = function atk(){
         const fetchPokemon = () => { // Cria um void.
                 const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'; // Define a base de URL.
-                var pokemonId = args[1]; // Define pokemonId como a primeira palavra dita pelo usuário.
-                if(pokemonId)var pokemonId = Math.floor(Math.random() * 807) + 1; // Define pokemonId como um valor randômico entre 1 à 807.
-                const url = baseUrl + `${pokemonId}`; // Atualiza a URL.
+                const url = baseUrl + `${args[1]}`; // Atualiza a URL.
 
                 fetch(url) // Pesquisa a URL.
                 .then(response => response.json()) // Ele transforma informações dadas pela API em um JSON.
