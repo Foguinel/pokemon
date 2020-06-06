@@ -38,7 +38,7 @@ express()
 
         exports.getAtk = function atk(){
         const fetchPokemon = () => { // Cria um void.
-                const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'; // Define a base de URL.
+                const baseUrl = 'https://pokeapi.co/api/v2/pokemon/charizard'; // Define a base de URL.
                 const url = baseUrl + `${args[1]}`; // Atualiza a URL.
 
                 fetch(url) // Pesquisa a URL.
