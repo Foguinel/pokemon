@@ -37,31 +37,24 @@ express()
         const command = args.shift().toLowerCase(); // Define o que é um coando
 
         exports.getAtk = function atk(){
-        const fetchPokemon = () => { // Cria um void.
-                const baseUrl = 'https://pokeapi.co/api/v2/pokemon/charizard'; // Define a base de URL.
-                const url = baseUrl; // Atualiza a URL.
+        const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'; // Define a base de URL.
+        var pokemonId = args[0] // Define pokemonId como a primeira palavra dita pelo usuário.
+        const url = baseUrl + `${pokemonId}`; // Atualiza a URL.
 
-                fetch(url) // Pesquisa a URL.
-                .then(response => response.json()) // Ele transforma informações dadas pela API em um JSON.
-                .then(pokemon => { // Com base no JSON ele extrai informações sobre o pokemon.
-                
-                var name = pokemon['name']; // Compacta linhas de código.
-                var id = pokemon['id']; // Compacta linhas de código.
-                const image = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`; // Pega uma imagem em melhor resolução
-                
-                var moves = pokemon['moves']
+        fetch(url) // Pesquisa a URL.
+        .then(response => response.json()) // Ele transforma informações dadas pela API em um JSON.
+        .then(pokemon => { // Com base no JSON ele extrai informações sobre o pokemon.
+        
+        var name = pokemon['name']; // Compacta linhas de código.
+        var moves = pokemon['moves']; // Compacta linhas de código.
 
-                var keys = [];
-                for(var i = 0;i <= Object.keys(moves).length;i++)
-                {
-                    Object.keys(moves[i]).forEach(function(key){
-                            keys.push(Object.keys(moves[0].move.name));
-                    })}
-                    return keys;
-            })
-        }
-        fetchPokemon() // Por fim, ele chama o void.
-        }
+        var val_1 = Math.floor(Math.random() * moves.length) + 1;
+        var val_2 = Math.floor(Math.random() * moves.length) + 1;
+        var val_3 = Math.floor(Math.random() * moves.length) + 1;
+        var val_4 = Math.floor(Math.random() * moves.length) + 1;
+
+        return console.log(`${moves[val_1].move.name}\n${moves[val_2].move.name}\n${moves[val_3].move.name}\n${moves[val_4].move.name}`);
+})}
 
         function errorEmbed(s){
         //Definimos os erros mais comuns como números para facilitar a troca.
