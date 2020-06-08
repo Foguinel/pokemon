@@ -47,13 +47,16 @@ express()
         
         var name = pokemon['name']; // Compacta linhas de código.
         var moves = pokemon['moves']; // Compacta linhas de código.
+        var rAtks = []
 
         var val_1 = Math.floor(Math.random() * moves.length) + 1;
         var val_2 = Math.floor(Math.random() * moves.length) + 1;
         var val_3 = Math.floor(Math.random() * moves.length) + 1;
         var val_4 = Math.floor(Math.random() * moves.length) + 1;
 
-        return message.channel.send(`${moves[val_1].move.name}\n${moves[val_2].move.name}\n${moves[val_3].move.name}\n${moves[val_4].move.name}`);
+        rAtks.push(moves[val_1].move.name, moves[val_2].move.name, moves[val_3].move.name, moves[val_4].move.name)
+
+        return(rAtks)
 })}
 
         function errorEmbed(s){
