@@ -36,9 +36,9 @@ express()
         const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g);
         const command = args.shift().toLowerCase(); // Define o que é um coando
 
-        exports.getAtk = function atk(){
+        exports.getAtk = function atk(str){
         const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'; // Define a base de URL.
-        var pokemonId = args[0] // Define pokemonId como a primeira palavra dita pelo usuário.
+        var pokemonId = str // Define pokemonId como a primeira palavra dita pelo usuário.
         const url = baseUrl + `${pokemonId}`; // Atualiza a URL.
 
         fetch(url) // Pesquisa a URL.
@@ -56,7 +56,7 @@ express()
 
         rAtks.push(moves[val_1].move.name, moves[val_2].move.name, moves[val_3].move.name, moves[val_4].move.name)
 
-        return(rAtks)
+        return rAtks
 })}
 
         function errorEmbed(s){
