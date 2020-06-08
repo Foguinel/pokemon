@@ -53,13 +53,7 @@ express()
         var val_3 = Math.floor(Math.random() * moves.length) + 1;
         var val_4 = Math.floor(Math.random() * moves.length) + 1;
 
-        var rAtks = new Object();
-        rAtks[0] = moves[val_1].move.name
-        rAtks[1] = moves[val_2].move.name
-        rAtks[2] = moves[val_3].move.name
-        rAtks[3] = moves[val_4].move.name
-
-        return rAtks
+        return moves[val_1].move.name, moves[val_2].move.name, moves[val_3].move.name, moves[val_4].move.name;
 })}
 
         function errorEmbed(s){
