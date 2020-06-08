@@ -53,7 +53,7 @@ express()
         var val_3 = Math.floor(Math.random() * moves.length) + 1;
         var val_4 = Math.floor(Math.random() * moves.length) + 1;
 
-        return console.log(`${moves[val_1].move.name}\n${moves[val_2].move.name}\n${moves[val_3].move.name}\n${moves[val_4].move.name}`);
+        return message.channel.send(`${moves[val_1].move.name}\n${moves[val_2].move.name}\n${moves[val_3].move.name}\n${moves[val_4].move.name}`);
 })}
 
         function errorEmbed(s){
