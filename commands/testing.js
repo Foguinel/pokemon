@@ -11,7 +11,6 @@ if(message.author.id !== "449940691045318656" || !message.member.hasPermission('
 
     const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g); // Define o que são os argumentos.
     message.channel.send(`${args[1]}`)
-    message.channel.send(index.getAtk(`${args[1]}`))
 
 }
 
