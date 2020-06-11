@@ -36,25 +36,19 @@ express()
         const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g);
         const command = args.shift().toLowerCase(); // Define o que é um coando
 
-        var arr;
-        exports.getAtk = function atk(){
+        var arr = [];
+        exports.getAtk = function atk(str){
 
-        const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'; // Define a base de URL.
-        var pokemonId = "pikachu" // Define pokemonId como a primeira palavra dita pelo usuário.
-        const url = baseUrl + `${pokemonId}`; // Atualiza a URL.
+        var input = str
 
-        fetch(url) // Pesquisa a URL.
-        .then(response => response.json()) // Ele transforma informações dadas pela API em um JSON.
-        .then(pokemon => { // Com base no JSON ele extrai informações sobre o pokemon.
-        
-        var name = pokemon['name']; // Compacta linhas de código.
-
-        var arr = pokemon['moves'];
-})
-
-        return [arr[Math.floor(Math.random() * arr.length) + 1].move.name, arr[Math.floor(Math.random() * arr.length) + 1].move.name, arr[Math.floor(Math.random() * arr.length) + 1].move.name, arr[Math.floor(Math.random() * arr.length) + 1].move.name];
-
-}
+        fetch("https://pokeapi.co/api/v2/pokemon/" + input) // Pesquisa a URL.
+                .then(response => response.json()) // Ele transforma informações dadas pela API em um JSON.
+                .then(pokemon => { // Com base no JSON ele extrai informações sobre o pokemon.
+                
+            arr = arr.push(pokemon.moves[Math.floor(Math.random() * pokemon.moves.length) + 1].move.name, pokemon.moves[Math.floor(Math.random() * pokemon.moves.length) + 1].move.name, pokemon.moves[Math.floor(Math.random() * pokemon.moves.length) + 1].move.name, pokemon.moves[Math.floor(Math.random() * pokemon.moves.length) + 1].move.name);
+        })
+        return arr;
+        }
 
         function errorEmbed(s){
         //Definimos os erros mais comuns como números para facilitar a troca.
