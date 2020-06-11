@@ -36,7 +36,9 @@ express()
         const args = message.content.slice(configBot.prefix.length).trim().split(/ +/g);
         const command = args.shift().toLowerCase(); // Define o que é um coando
 
+        var arr;
         exports.getAtk = function atk(str){
+
         const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'; // Define a base de URL.
         var pokemonId = str // Define pokemonId como a primeira palavra dita pelo usuário.
         const url = baseUrl + `${pokemonId}`; // Atualiza a URL.
@@ -46,15 +48,13 @@ express()
         .then(pokemon => { // Com base no JSON ele extrai informações sobre o pokemon.
         
         var name = pokemon['name']; // Compacta linhas de código.
-        var moves = pokemon['moves']; // Compacta linhas de código.
 
-        var val_1 = Math.floor(Math.random() * moves.length) + 1;
-        var val_2 = Math.floor(Math.random() * moves.length) + 1;
-        var val_3 = Math.floor(Math.random() * moves.length) + 1;
-        var val_4 = Math.floor(Math.random() * moves.length) + 1;
+        var arr = pokemon['moves'];
+})
 
-        return moves[val_1].move.name, moves[val_2].move.name, moves[val_3].move.name, moves[val_4].move.name;
-})}
+        return arr = [arr[Math.floor(Math.random() * arr.length) + 1].move.name, arr[Math.floor(Math.random() * arr.length) + 1].move.name, arr[Math.floor(Math.random() * arr.length) + 1].move.name, arr[Math.floor(Math.random() * arr.length) + 1].move.name];
+
+}
 
         function errorEmbed(s){
         //Definimos os erros mais comuns como números para facilitar a troca.
