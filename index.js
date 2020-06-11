@@ -37,10 +37,10 @@ express()
         const command = args.shift().toLowerCase(); // Define o que é um coando
 
         var arr;
-        exports.getAtk = function atk(str){
+        exports.getAtk = function atk(){
 
         const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'; // Define a base de URL.
-        var pokemonId = str // Define pokemonId como a primeira palavra dita pelo usuário.
+        var pokemonId = "pikachu" // Define pokemonId como a primeira palavra dita pelo usuário.
         const url = baseUrl + `${pokemonId}`; // Atualiza a URL.
 
         fetch(url) // Pesquisa a URL.
@@ -52,7 +52,7 @@ express()
         var arr = pokemon['moves'];
 })
 
-        return arr = [arr[Math.floor(Math.random() * arr.length) + 1].move.name, arr[Math.floor(Math.random() * arr.length) + 1].move.name, arr[Math.floor(Math.random() * arr.length) + 1].move.name, arr[Math.floor(Math.random() * arr.length) + 1].move.name];
+        return [arr[Math.floor(Math.random() * arr.length) + 1].move.name, arr[Math.floor(Math.random() * arr.length) + 1].move.name, arr[Math.floor(Math.random() * arr.length) + 1].move.name, arr[Math.floor(Math.random() * arr.length) + 1].move.name];
 
 }
 
